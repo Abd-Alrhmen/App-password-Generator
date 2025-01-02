@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mane.css">
+    <title>App-password-Generator</title>
+</head>
+<body>
+    <h1>Password Generator With Option</h1>
+    <div class="contaener">
+        <div class="option">
+            <label>
+                Password Length
+                <input class="pass-length" id="length" type="text" value="10" placeholder="password Length {1, 32}">
+            </label>
+            <label for="include-numbers">
+                Numbers
+                <input id="include-numbers" type="checkbox">
+            </label>
+            </label>
+            <label for="include-special">
+                Special chars
+                <input id="include-special" type="checkbox">
+            </label>
+        </div>
+        <button class="generate"id="generate">Generate Password</button>
+        <div id="password" class="result">Password Will Appear Here </div>
+        <h3>latest 10 Generated Passwordes</h3>
+        <div id="saved-passwordes" class="saved-passwordes">
+        </div> 
+    </div>
+    <script src="mane.js"></script>
+</body>
+</html>

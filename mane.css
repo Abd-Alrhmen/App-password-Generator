@@ -1,0 +1,131 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    background-color: #eee;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    margin: 0 0 20px ;
+    background-color: #ccc;
+}
+.contaener {
+    max-width: 900px;
+    margin: 50px auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.option {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin-bottom: 20px;
+}
+.option label {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+}
+.option label:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+.option label:hover {
+    background-color: #f9f9f9;
+}
+.option label input[type="text"] {
+    width: 100%;
+    padding: 0 10px;
+    height: 35px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto 0;
+}
+.option label input[type="text"]:focus {
+    outline: none;
+}
+.option label input[type="checkbox"] {
+    width: 35px;
+    height: 35px;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+    accent-color: indianred;
+}
+.generate {
+    padding: 20px;
+    margin: 0 0 20px;
+    border: none;
+    border-radius: 5px;
+    background: indianred;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.generate:hover,
+.saved-passwordes > div > button:hover {
+    background-color: #b7393a;
+}
+.result {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px dashed indianred;
+    text-align: center;
+    font-size: 30px;
+}
+.result + h3 {
+    text-align: center;
+    background: #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+.saved-passwordes{
+    background: white;
+    padding:  20px;
+    border-radius: 5px;
+}
+.saved-passwordes > div {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    font-size: 20px;
+    position: relative;
+}
+.saved-passwordes > div:not(:last-child){
+    border-bottom: 1px solid #ccc;
+}
+.saved-passwordes > div > span {
+    width: 40px;
+    height: 40px;
+    padding: 0 21px;
+    font-weight: bold;
+    background: indianred;
+    color: white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+} 
+.saved-passwordes > div > button {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: indianred;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
