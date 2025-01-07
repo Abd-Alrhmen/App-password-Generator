@@ -26,19 +26,19 @@ h1 {
     background: white;
     margin-bottom: 20px;
 }
-.option label {
+.option > label {
     flex: 1;
     text-align: center;
     cursor: pointer;
     padding: 20px;
 }
-.option label:not(:last-child) {
+.option > label:not(:last-child) {
     border-right: 1px solid #ccc;
 }
-.option label:hover {
+.option > label:hover {
     background-color: #f9f9f9;
 }
-.option label input[type="text"] {
+.option > label input[type="text"] {
     width: 100%;
     padding: 0 10px;
     height: 35px;
@@ -47,16 +47,31 @@ h1 {
     border-radius: 5px;
     margin: 20px auto 0;
 }
-.option label input[type="text"]:focus {
+.option > label input[type="text"]:focus {
     outline: none;
 }
-.option label input[type="checkbox"] {
+.option .toggle-container {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+}
+.option .toggle-container .switch-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    align-items: center;
+    padding: 20px;       
+}
+.option .toggle-container .switch-container:not(:last-child) {
+    border-right: 1px solid #ccc;
+}
+.option .toggle-container .switch-container input[type="checkbox"] {
     width: 35px;
     height: 35px;
-    display: block;
-    text-align: center;
-    margin: 20px auto 0;
-    accent-color: indianred;
+    margin: 20px 0 0;
+    cursor: pointer;
+    accent-color: indianred
 }
 .generate {
     padding: 20px;
@@ -72,7 +87,7 @@ h1 {
     cursor: pointer;
 }
 .generate:hover,
-.saved-passwordes > div > button:hover {
+.delete-btn:hover {
     background-color: #b7393a;
 }
 .result {
@@ -100,11 +115,22 @@ h1 {
     padding: 15px 0;
     font-size: 20px;
     position: relative;
+} 
+.saved-passwordes > .password {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+.saved-passwordes >.password .password-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .saved-passwordes > div:not(:last-child){
     border-bottom: 1px solid #ccc;
 }
-.saved-passwordes > div > span {
+.saved-passwordes > div .number {
     width: 40px;
     height: 40px;
     padding: 0 21px;
@@ -117,15 +143,126 @@ h1 {
     justify-content: center;
     margin-right: 15px;
 } 
-.saved-passwordes > div > button {
-    position: absolute;
-    right: 0;
-    padding: 10px;
-    border-radius: 5px;
+.saved-passwordes > .password .action {
+    display: flex;
+    gap: 3px;
+}
+.saved-passwordes > .password button {
+    padding: 10px 0;
+    width: 60px;
     border: none;
-    background: indianred;
-    color: white;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
+    color: white;
+    background: indianred;
+    border-radius: 5px;
     cursor: pointer;
+}
+.saved-passwordes > .password .action .copy-btn{
+    padding: 0;
+}
+
+/* @media             --------------------- */
+@media (min-width:150px) and (max-width:768px){
+    .contaener{
+        margin-top: 20px;
+    }
+    .option > label input[type="text"] {
+        margin: 0 auto 0;
+    }
+    .toggle-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .option .toggle-container .switch-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        flex-direction: unset;
+        width: 100%;
+    }
+    .option .toggle-container .switch-container:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+    }
+/* The switch - the container */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 25px;
+    }
+    /* Hide default HTML checkbox */
+    .switch input[type="checkbox"]  {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        display: none;
+    }
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 25px; /* For rounded switch */
+    }
+    /* The circle inside the slider */
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 19px;
+        width: 19px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%; /* Make the circle rounded */
+    }
+    /* When checked, change the background color */
+    input:checked + .slider {
+        background-color: indianred;
+    }
+    /* When checked, move the circle */
+    input:checked + .slider:before {
+        transform: translateX(25px);
+        box-shadow: 0px 0px 7px 10px indianred;
+    }
+    .option {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .option > label {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    } 
+    .option label:not(:last-child) {
+        border-bottom: 1px solid #ccc;
+        border-right: none;
+    } 
+    .contaener .result {
+        overflow: auto;
+        font-size: 15px;
+    }
+    .saved-passwordes .password .password-info .number{
+        margin-right: none;
+    }
+    .saved-passwordes .password .password-info .password-text {
+        overflow: auto;
+        font-size: 15px;
+        max-width: 125px;
+    }
+    .saved-passwordes  .password .action {
+        display: flex;
+        gap: 2px;
+    } 
 }

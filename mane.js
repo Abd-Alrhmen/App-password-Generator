@@ -58,7 +58,18 @@ function savePassword(password) {
 //Display Password Of LocalStorage
 function displayPasswordOfLocalstorag(){
     const savedPassword = JSON.parse(localStorage.getItem("password")) || [];
-    const lestOfPassword = savedPassword.map((p,i) => `<div><span>${i + 1}</span>${escapeHTML(p)} <button class="delete-btn">Delete</button> </div>`).join("");
+    // const lestOfPassword = savedPassword.map((p,i) => `<div><span></span>${escapeHTML(p)} <button class="delete-btn">Delete</button> </div>`).join("");
+    const lestOfPassword = savedPassword.map((p,i) =>
+        `<div class="password">
+            <div class="password-info">
+                <span class="number">${i + 1}</span>
+                <p class="password-text">${escapeHTML(p)} </p>
+            </div>
+            <div class="action">
+                <button onclick="copyBtn('${p}')" class="copy-btn"><span class="material-symbols-outlined ">content_copy</span></button>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>`).join("");
     document.getElementById("saved-passwordes").innerHTML = lestOfPassword ||"Password Will show here";
     deleteBtn() 
 }
@@ -83,5 +94,15 @@ function deleteBtn() {
         })
     })
 }
+//Copy Button
+function copyBtn(text) {
+    navigator.clipboard.writeText(text)
+    .then( ()=>{
+        alert("Copied The Text" + text)
+    }).catch(err => {
+        console.error("Failed To Copy Text", err );
+    })
+}
+
 // Display Password On Page Lode
 document.addEventListener("DOMContentLoded",displayPasswordOfLocalstorag())
